@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { StyleSheet, Text, View, Image } from 'react-native';
+import SVG from "./imgs/usaBoxingNE_logo.png"; 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>USA Boxing App</Text>
       <StatusBar style="auto" />
+      <Image source={SVG} height={100} width={100}/>
     </View>
   );
 }
