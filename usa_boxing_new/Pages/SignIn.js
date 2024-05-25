@@ -20,7 +20,7 @@ export default function SignIn({navigation}){
  const SignUpButton = (
     <View style = {styles.signUp}>
         <Text>Don't jave an account?</Text>
-    <TouchableOpacity style = {styles.signUpTextCont} onPress={() => navigation.replace("Home")}>
+    <TouchableOpacity style = {styles.signUpTextCont}>
         <Text style = {styles.signUpText} onPress={() => navigation.replace("SignUp")}>SignUp</Text>
     </TouchableOpacity>
     </View>
@@ -29,8 +29,8 @@ export default function SignIn({navigation}){
 const ResetAcc = (
     <View style = {styles.signUp}>
         <Text>Forgot username / password?</Text>
-    <TouchableOpacity style = {styles.signUpTextCont} onPress={() => navigation.replace("Home")}>
-        <Text style = {styles.signUpText} onPress={() => navigation.replace("SignUp")}>reset</Text>
+    <TouchableOpacity style = {styles.signUpTextCont}>
+        <Text style = {styles.signUpText} onPress={() => navigation.replace("Home")}>reset</Text>
     </TouchableOpacity>
     </View>
 

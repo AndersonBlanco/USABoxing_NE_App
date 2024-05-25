@@ -7,9 +7,9 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
 //pages import: 
 import SignIn from "./Pages/SignIn"; 
-import SignUp from "./Pages/SignIn"; 
+import SignUp from "./Pages/SignUp"; 
 import Home from "./Pages/Home"; 
-
+import SelectAccType from './Pages/SelectAccType';
 export default function App({navigation}) {
   const Stack = createNativeStackNavigator(); 
   const DeafTheme = {
@@ -28,6 +28,7 @@ export default function App({navigation}) {
         <Stack.Group>
           <Stack.Screen name = 'SignIn' component={SignIn}/>
           <Stack.Screen name = 'SignUp' component={SignUp}/>
+          <Stack.Screen name = 'SelectAccType' component={SelectAccType}/>
         </Stack.Group>
 
       <Stack.Screen name = 'Home' component={Home}/>
