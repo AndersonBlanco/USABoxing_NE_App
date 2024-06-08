@@ -10,31 +10,35 @@ import GoogleLogo from "../imgs/google_logo.png";
 import AppleLogo from "../imgs/apple_logo.png";
 import ArrowSVG from "../imgs/arrowSVG";
 import DumbellSVG from "../imgs/DumbellSVG";
+import BoxingGloveSVG from "../imgs/boxingGlove";
 
-export default function SelectAccType(){
-    //falase = fitness account, true = athlete account
-    const [accType, setAccType] = useState(false); 
-    const 
-    typeSelectedContStyle = {
-        backgroundColor: "black",
-    }, 
-    typeSelectedTextStyle = {
-        color: "white"
+export default function SelectAccType({navigation}){
+
+
+    //Account Types - START
+
+    const [acc_type_select, set_acc_type_select] = useState(true);
+    //true -> athlete 
+    //false -> fitness
+
+    function changeAccType(bool){
+        set_acc_type_select(bool);
+        console.log(acc_type_select)
     }
+    const AthleteType = (
+        <TouchableOpacity onPress={() => changeAccType(true)} style = {[styles.gymAccType, {backgroundColor: acc_type_select? "black" : "transparent"}]}>
+        <Text style={[styles.gymAccType_title, {color: acc_type_select? "white" : "black"}]}>Athlete</Text>
+        <BoxingGloveSVG height = {70} width={90} color = {acc_type_select? "white":"black"} />
+       </TouchableOpacity>
+    )
 
     const FitnessType = (
-        <TouchableOpacity style = {styles.gymAccType}>
-        <Text style={styles.gymAccType_title}>Fitness</Text>
-        <DumbellSVG fill = "black" size = {70} />
+        <TouchableOpacity onPress={() => changeAccType(false)} style = {[styles.gymAccType, {backgroundColor: acc_type_select? "transparent" : "black"}]}>
+        <Text style={[styles.gymAccType_title, {color: acc_type_select? "black" :"white"}]}>Fitness</Text>
+        <DumbellSVG fill = {acc_type_select? "black":"white"} size = {85} style = {{marginBottom: -15}}/>
        </TouchableOpacity>
     )
 
-    const AthleteType = (
-        <TouchableOpacity style = {styles.gymAccType}>
-        <Text style={styles.gymAccType_title}>Fitness</Text>
-        <DumbellSVG fill = "black" size = {70}/>
-       </TouchableOpacity>
-    )
 
     const Types = (
         <View style = {styles.row}>
@@ -43,14 +47,19 @@ export default function SelectAccType(){
         </View>
     )
 
+    //Account types - END
+
+
+    //buttons - START
+
     const NextButton = (
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress = {() => navigation.replace("Home")}>
             <Text style={styles.button_text}>Next</Text>
         </TouchableOpacity>
     )
 
     const BackButton = (
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={()=> navigation.replace("SignIn")}>
             <Text style={styles.button_text}>Back</Text>
         </TouchableOpacity>
     )
@@ -61,6 +70,8 @@ export default function SelectAccType(){
             {BackButton}
         </View>
     )
+
+    //buttons - END
 
     return(
         <SafeAreaView>
@@ -94,7 +105,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         alignItems:"center",
         justifyContent:"center",
-        paddingHorizontal: 35,
+        paddingHorizontal: 30,
         borderRadius: 10,
 
     },

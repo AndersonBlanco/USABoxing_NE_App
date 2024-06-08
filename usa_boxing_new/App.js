@@ -10,6 +10,8 @@ import SignIn from "./Pages/SignIn";
 import SignUp from "./Pages/SignUp"; 
 import Home from "./Pages/Home"; 
 import SelectAccType from './Pages/SelectAccType';
+import RegisterUnderGym from './Pages/registerUnderGym';
+
 export default function App({navigation}) {
   const Stack = createNativeStackNavigator(); 
   const DeafTheme = {
@@ -23,12 +25,13 @@ export default function App({navigation}) {
   //navigationKey={isSignedIn? "user" : "guest"} - removes all screens with set navigation key when condition is true / false
   return (
     <NavigationContainer theme={DeafTheme}>
-      <Stack.Navigator screenOptions={{headerShown:false}}>
+      <Stack.Navigator screenOptions={{headerShown:false, animation:"none"}}>
 
-        <Stack.Group>
+        <Stack.Group name = "auth_and_acc_creation">
           <Stack.Screen name = 'SignIn' component={SignIn}/>
           <Stack.Screen name = 'SignUp' component={SignUp}/>
           <Stack.Screen name = 'SelectAccType' component={SelectAccType}/>
+          <Stack.Screen name = 'RegisterUnderGym' component={RegisterUnderGym}/>
         </Stack.Group>
 
       <Stack.Screen name = 'Home' component={Home}/>

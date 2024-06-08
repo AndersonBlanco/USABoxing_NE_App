@@ -27,7 +27,7 @@ export default function SignIn({navigation}){
  )
 
 const ResetAcc = (
-    <View style = {styles.signUp}>
+    <View style = {[styles.signUp, {top: inputForm_from_top_Position *2.27,}]}>
         <Text>Forgot username / password?</Text>
     <TouchableOpacity style = {styles.signUpTextCont}>
         <Text style = {styles.signUpText} onPress={() => navigation.replace("Home")}>reset</Text>
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     },
     SignInButton:{
         backgroundColor:"black",
-        top: inputForm_from_top_Position *1.75,
+        top: inputForm_from_top_Position *1.8,
         width: 250, 
         textAlign:"center",
         alignItems:"center",
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
         fontSize: 15
     },
     signUp:{
-        top: inputForm_from_top_Position *2.25,
+        top: inputForm_from_top_Position *2.11,
         alignItems:"center",
         justifyContent:"flex",
         flexDirection:"row"
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     authPartitionsSection:{
         justifyContent:"flex",
         flexDirection:"row",
-        top: inputForm_from_top_Position *2.75,
+        top: inputForm_from_top_Position *2.7,
         columnGap: 50
     },
     authPartitionsIcons:{
